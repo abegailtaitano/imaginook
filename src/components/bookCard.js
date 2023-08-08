@@ -8,7 +8,8 @@ const BookCard = ({ title, authors, description, thumbnail}) => {
         <img src={thumbnail} alt={title} />
       <h2 className="book-title">{title}</h2>
       <p className="book-authors">Authors: {authors.join(', ')}</p>
-      <p className="book-description">{description}</p>
+      <p dangerouslySetInnerHTML={{__html:description}}
+      className="book-description"></p>
     </div>
   );
 };

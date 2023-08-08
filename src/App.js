@@ -28,7 +28,7 @@ function App() {
           type="text"
           placeholder="Search for books"
           value={query}
-          onChange={(e) => setQuery(e.target.value)}
+          onChange={e => setQuery(e.target.value)}
         />
         <button onClick={handleSearch}>Search</button>
       </div>
