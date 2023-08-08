@@ -2,7 +2,7 @@
 .App {
   text-align: center;
   padding: 4rem;
-  color: rgb(219, 233, 232);
+  color: rgb(48, 171, 162);
 }
 
 .book-list {
@@ -32,9 +32,6 @@
   padding: 1rem;
 }
 
-br {
-  display: none;
-}
 
 /* BookCard.css */
 .book-card {
