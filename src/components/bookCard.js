@@ -3,7 +3,7 @@ import React from 'react';
 
 const BookCard = ({ title, authors, description, thumbnail}) => {
   return (
-    <div className="book-card">
+    <div className="book-card" onClick={(e) => e.stopPropagation()}>
         <div className="book-thumbnail"></div>
         <img src={thumbnail} alt={title} />
       <h2 className="book-title">{title}</h2>

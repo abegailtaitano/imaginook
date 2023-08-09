@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import './App.css';
 import { searchBooks, retrieveBookDetails } from './api';
 import BookCard from './components/bookCard';
+import video from '../src/assets/video.mp4';
+
 
 
 function App() {
@@ -16,13 +18,26 @@ function App() {
     }
   };
 
+  const handleKeyDown = (e) => {
+    if (e.key === 'Enter') {
+      handleSearch();
+    }
+  };
+
   const handleBookSelection = async (bookId) => {
     const bookDetails = await retrieveBookDetails(bookId);
     setSelectedBook(bookDetails.volumeInfo);
   };
+   const closeBookDetails = () => {
+    setSelectedBook(null);
+   };
 
   return (
-    <div className="App">
+    <div>
+      <video autoPlay loop muted>
+        <source src={video} type='video/mp4'/> 
+      </video>
+    <div className="App-content" onClick={closeBookDetails}>
       <h1>IMAGINOOK</h1>
       <div>
         <input
@@ -30,8 +45,10 @@ function App() {
           placeholder="Search for books"
           value={query}
           onChange={e => setQuery(e.target.value)}
+          onKeyDown={handleKeyDown}
         />
         <button onClick={handleSearch}>Search</button>
+        </div>
       </div>
       <div className="book-list">
         {books.map((book) => (
@@ -52,6 +69,7 @@ function App() {
             description={selectedBook.description}
             thumbnail={selectedBook.imageLinks?.thumbnail || ''} />
         </div>
+       
       )}
     </div>
   );
